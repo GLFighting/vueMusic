@@ -1,0 +1,44 @@
+{
+  "id": "3226698",
+  "name": "vueMusic",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4166107",
+      "name": "话筒",
+      "font_class": "huatong",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "6582304",
+      "name": "音乐2",
+      "font_class": "yinle",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "8371988",
+      "name": "音乐1",
+      "font_class": "yinle1",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "12708826",
+      "name": "音乐",
+      "font_class": "yinle2",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "27536378",
+      "name": "乡村邻里纠纷",
+      "font_class": "xiangcunlinlijiufen",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    }
+  ]
+}
