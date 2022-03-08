@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3226698 */
-  src: url('iconfont.woff2?t=1646635342033') format('woff2'),
-       url('iconfont.woff?t=1646635342033') format('woff'),
-       url('iconfont.ttf?t=1646635342033') format('truetype');
+  src: url('iconfont.woff2?t=1646710884716') format('woff2'),
+       url('iconfont.woff?t=1646710884716') format('woff'),
+       url('iconfont.ttf?t=1646710884716') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-a-2-caidan:before {
+  content: "\e8ce";
 }
 
 .icon-huatong:before {
