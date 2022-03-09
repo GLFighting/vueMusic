@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "28075313",
+      "name": "17-扫码",
+      "font_class": "a-17-saoma",
+      "unicode": "e8d0",
+      "unicode_decimal": 59600
+    },
+    {
+      "icon_id": "28075306",
+      "name": "10-右",
+      "font_class": "a-10-you",
+      "unicode": "e8cf",
+      "unicode_decimal": 59599
+    },
+    {
       "icon_id": "28075308",
       "name": "2-菜单",
       "font_class": "a-2-caidan",
