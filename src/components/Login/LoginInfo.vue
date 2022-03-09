@@ -23,13 +23,26 @@
   float: left;
   display: flex;
   align-items: center;
+  margin-top: 8px;
+  margin-left: 12px;
+}
+.info-left p{
+  font-size: 20px;
+}
+.info-left i{
+  font-size: 20px;
 }
 .info-left img{
   width: 30px;
   border-radius: 50%;
+  margin-right: 12px;
 }
 .info-right{
   float: right;
-  margin-top: 8px;
+  margin-top: 6px;
+  margin-right: 12px;
+}
+.info-right i{
+  font-size: 35px;
 }
 </style>
