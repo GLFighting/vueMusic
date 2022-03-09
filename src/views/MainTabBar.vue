@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-  import TabBar from '../components/TabBar/TabBar.vue'
+  import TabBar from '@/components/TabBar/TabBar.vue'
   import TabBarItem from '../components/TabBar/TabBarItem.vue'
 </script>
 

@@ -1,12 +1,15 @@
 <template>
   <div id="top-bar">
-    <i class="iconfont">&#xe8ce;</i>
+    <i @click="jumpLogin" class="iconfont">&#xe8ce;</i>
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-
+  //设置js跳转路由到login
+  const jumpLogin = ()=>{
+    
+  }
 </script>
 
 <style>
@@ -20,7 +23,9 @@
   left: 0;
   right: 0;
   top: 0;
-  /* 设置阴影 */
-  height: 49px;
+  line-height: 49px;
+}
+i{
+  font-size: 40px;
 }
 </style>
