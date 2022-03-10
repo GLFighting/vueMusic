@@ -1,5 +1,5 @@
 <template>
-  <div class="login-info">
+  <div class="login-info" >
     <div class="info-left">
       <img src="@/assets/img/login/info-img.jpg"/>
       <p>mach_G1Mx</p>

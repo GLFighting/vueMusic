@@ -1,5 +1,5 @@
 <template>
-  <div id="mask">
+  <div id="mask" v-show="mainStore.showLogin">
     <div id="login-container">
       <LoginInfo></LoginInfo>
       <slot></slot>
@@ -9,8 +9,22 @@
 </template>
 
 <script setup lang="ts">
+import { useMainStore } from '../../store';
+import { storeToRefs } from 'pinia'
+// import { useStore } from 'vuex';
+// import { key } from '../../store';
 import LoginInfo from './LoginInfo.vue'
 import LogOut from './Logout.vue'
+// 解构数据，但是得到的数据是不具有响应式的，只是一次性的
+// 相当于仅仅只是...mainStore而已，只是做了reactive处理，并没有做toRefs
+// const { count, info } = useMainStore();
+// 解决方法：
+// 1. 通过使用toRefs函数，因为前面所说相当于是通过reactive处理，因此可以
+// const { count, info } = toRefs(mainStore);
+// 2. 通过pinia中提供的storeToRefs方法来解决，推荐使用
+
+const mainStore = useMainStore()
+const { showLogin } = storeToRefs(mainStore)
 
 </script>
 

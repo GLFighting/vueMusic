@@ -1,15 +1,22 @@
 <template>
   <div id="top-bar">
-    <i @click="jumpLogin" class="iconfont">&#xe8ce;</i>
+    <i @click="showLogin" class="iconfont">&#xe8ce;</i>
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-  //设置js跳转路由到login
-  const jumpLogin = ()=>{
-    
-  }
+// import { useStore } from 'vuex';
+// import { key } from '../../store';
+//   const showLogin = ()=>{
+//     console.log(useStore(key).state.showLogin)
+//     console.log(useStore(key).commit('showLogin',true))
+//   }
+import { useMainStore } from '../../store';
+const mainStore = useMainStore()
+const showLogin = ()=>{
+  mainStore.changeLoginShow()
+}
 </script>
 
 <style>
