@@ -1,5 +1,7 @@
 <template>
-  <div id="mask" v-show="mainStore.showLogin">
+  <div id="mask" 
+  @click.self="closeLogin"
+  v-show="mainStore.showLogin">
     <div id="login-container">
       <LoginInfo></LoginInfo>
       <slot></slot>
@@ -25,6 +27,10 @@ import LogOut from './Logout.vue'
 
 const mainStore = useMainStore()
 const { showLogin } = storeToRefs(mainStore)
+const closeLogin = ()=>{
+  mainStore.changeLoginShow()
+  // console.log('---'+mainStore.showLogin)
+}
 
 </script>
 

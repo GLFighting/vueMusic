@@ -12,10 +12,12 @@ export const useMainStore = defineStore('main', {
       showLogin: false  //控制Login的开关
     }
   },
-  getters:{}, //类似于组件的computed，用来封装计算属性，具有缓存的功能
+  getters:{   //类似于组件的computed，用来封装计算属性，具有缓存的功能
+    
+  }, 
   actions:{   //同步异步均支持
     changeLoginShow(){
-      this.showLogin = true
+      this.showLogin = !this.showLogin
     }
   }
 })
