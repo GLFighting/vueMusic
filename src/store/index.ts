@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { defineStore } from "pinia";
 // 1. 定义容器、导出容器
 // 参数1：容器的ID，必须是唯一的，后面Pinia会把所有的容器挂载到根容器
@@ -9,7 +10,9 @@ export const useMainStore = defineStore('main', {
   // 2. 必须是箭头函数，这样是为了更好的 TS 类型推导
   state: ()=>{
     return {
-      showLogin: false  //控制Login的开关
+      showLogin: false,  //控制Login的开关
+      loading:  false,
+      user: {}, //用户账户信息，通过userAdd函数添加
     }
   },
   getters:{   //类似于组件的computed，用来封装计算属性，具有缓存的功能
@@ -18,6 +21,20 @@ export const useMainStore = defineStore('main', {
   actions:{   //同步异步均支持
     changeLoginShow(){
       this.showLogin = !this.showLogin
+    },
+    userAdd(){
+      let profile1 = JSON.parse(Cookies.get('profile')!)
+      //将用户的账户信息储存在 user 中
+      this.user = {uid: profile1.userID, nickname: profile1.nickname}
+    },
+    userClear(){
+      this.user = {};
+    },
+    startLoading(){
+      this.loading = true;
+    },
+    endLoading(){
+      this.loading = false;
     }
   }
 })

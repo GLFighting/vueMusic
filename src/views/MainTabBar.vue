@@ -1,6 +1,6 @@
 <template>
  <TabBar>
-   <TabBarItem>
+   <TabBarItem  @click="move('/find')">
      <template  v-slot:item-img>
        <p class="iconfont">&#xe621;</p>
      </template>
@@ -8,7 +8,7 @@
        <div>发现</div>
      </template>
    </TabBarItem>
-   <TabBarItem>
+   <TabBarItem @click="move('/podcast')">
      <template v-slot:item-img>
        <p class="iconfont">&#xe62e;</p>
      </template>
@@ -46,6 +46,12 @@
 <script setup lang="ts">
   import TabBar from '@/components/TabBar/TabBar.vue'
   import TabBarItem from '../components/TabBar/TabBarItem.vue'
+
+  import { useRouter } from 'vue-router';
+  const router = useRouter()  
+  const move = (url:string) => {      //点击实现路由跳转
+    router.push('/home'+url);
+  }
 </script>
 
 <style>

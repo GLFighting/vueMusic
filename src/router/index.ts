@@ -4,12 +4,29 @@ const router = createRouter({
   routes:[
     {
       path:'/',
-      redirect:''
+      redirect:'/register'
     },
     {
-      path:'/login',
-      name:'login',
-      component:()=>import('../components/Login/LoginContainer.vue')
+      path:'/register',
+      name:'register',
+      component:()=>import('@/views/Register.vue')
+    },
+    {
+      path:'/home',
+      name:'home',
+      component:()=>import('@/views/Home.vue'),
+      children:[
+        {
+          path:'find',
+          name:'find',
+          component:()=>import('@/components/Find/Find.vue')
+        },
+        {
+          path:'podcast',
+          name:'podcast',
+          component:()=>import('@/components/PodCast/PodCast.vue')
+        }
+      ]
     }
   ]
 })
