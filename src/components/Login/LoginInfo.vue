@@ -1,8 +1,8 @@
 <template>
   <div class="login-info" >
     <div class="info-left">
-      <img src="@/assets/img/login/info-img.jpg"/>
-      <p>mach_G1Mx</p>
+      <img :src="data.userImg" />
+      <p>{{data.nickName}}</p>
       <i class="iconfont">&#xe8cf;</i>
     </div>
     <div class="info-right">
@@ -12,6 +12,13 @@
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue';
+
+let data = reactive({
+  userId: JSON.parse(localStorage.getItem('userProfile')!).userId,
+  nickName: JSON.parse(localStorage.getItem('userProfile')!).nickname,
+  userImg: JSON.parse(localStorage.getItem('userProfile')!).avatarUrl
+})
 
 </script>
 

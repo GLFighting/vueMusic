@@ -12,7 +12,6 @@ export const useMainStore = defineStore('main', {
     return {
       showLogin: false,  //控制Login的开关
       loading:  false,
-      user: {}, //用户账户信息，通过userAdd函数添加
     }
   },
   getters:{   //类似于组件的computed，用来封装计算属性，具有缓存的功能
@@ -22,19 +21,8 @@ export const useMainStore = defineStore('main', {
     changeLoginShow(){
       this.showLogin = !this.showLogin
     },
-    userAdd(){
-      let profile1 = JSON.parse(Cookies.get('profile')!)
-      //将用户的账户信息储存在 user 中
-      this.user = {uid: profile1.userID, nickname: profile1.nickname}
-    },
-    userClear(){
-      this.user = {};
-    },
-    startLoading(){
-      this.loading = true;
-    },
-    endLoading(){
-      this.loading = false;
+    userAdd(){     //添加用户信息
+
     }
   }
 })

@@ -1,6 +1,16 @@
 import requests from './axios' //引入封装的axios
 import Cookies from 'js-cookie'  //引入第三方模块（npm库）
 
+//获取账号信息
+function getAccount(){
+  return requests({
+    url: '/user/account',
+    params: {
+      timestamp: new Date().getTime()
+    }
+  })
+}
+
 //获取用户信息，歌单，收藏，mv，dj数量
 function getUserInfo_(){
   return requests({
@@ -22,16 +32,6 @@ function getUserPlayList(uid:any){
     url: '/user/playlist',
     params: {
       uid,
-    }
-  })
-}
-
-//获取账号信息
-function getAccount(){
-  return requests({
-    url: '/user/account',
-    params: {
-      timestamp: new Date().getTime()
     }
   })
 }
