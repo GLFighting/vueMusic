@@ -21,13 +21,6 @@
         />
       </form>
       <p class="login" @click="login">登录</p>
-      <!-- <a-space style="width: 100%">
-      <a-button danger shape="round" loading />
-      </a-space>-->
-    </div>
-    <div class="res-container" v-show="data.istrue">
-      <p class="res1" :class="{ 'opacity': data.istrue }">手机号码不合法</p>
-      <p class="res2" :class="{ 'opacity': data.istrue }">{{ data.msg }}</p>
     </div>
     <div class="loading-mask" v-show="data.loading">
       <div class="sk-folding-cube">
@@ -36,6 +29,10 @@
         <div class="sk-cube4 sk-cube"></div>
         <div class="sk-cube3 sk-cube"></div>
       </div>
+    </div>
+    <div class="res-container" v-show="data.istrue">
+      <p class="res1" :class="{ 'opacity': data.istrue }">手机号码不合法</p>
+      <p class="res2" :class="{ 'opacity': data.istrue }">{{ data.msg }}</p>
     </div>
   </div>
 </template>
@@ -58,7 +55,7 @@ let data = reactive({
   password: '',
   msg: '',
   istrue: false,  //opacity开关
-  loading:false
+  loading: false
 })
 
 
@@ -74,39 +71,50 @@ const login = () => {
   //判断账号或密码是否为空
   if (!data.password || !data.phone) {
     alert('账号或密码不能为空')
+    data.loading = false
     return
   } else {
     //检查电话号码格式
     if (checkPhone()) {
       userLogin_(data.phone, data.password)  //手机登录——userLogin_
         .then((res) => {
-          console.log(res.data.profile)
-          console.log(res.data.profile.userId)
-          console.log(res.data.profile.nickName)
-          localStorage.setItem('userProfile', JSON.stringify(res.data.profile))   //将 res.data.profile存入本地存储
-          console.log(res.data.code)  //登陆成功code为200
-          console.log(typeof res.data.code)  //登陆成功code为200
-          if (res.data.code === 200) {
-            console.log('成功')
-            localStorage.setItem("token", JSON.stringify(res.data.token))  //向本地存储添加token
-            data.loading = false
-            router.push('/home')  //登录成功跳转路由
+          // console.log(res.data.profile)
+          // console.log(res.data.profile.userId)
+          // console.log(res.data.profile.nickName)
+          // console.log(res.data.code)  //登陆成功code为200
+          // console.log(typeof res.data.code)  //登陆成功code为200
+          try {
+            if (res.data.code === 200) {
+              console.log('成功')
+              localStorage.setItem("token", JSON.stringify(res.data.token))  //向本地存储添加token
+              localStorage.setItem('userProfile', JSON.stringify(res.data.profile))   //将 res.data.profile存入本地存储
+              data.loading = false
+              router.push('/home')  //登录成功跳转路由
+            }
+            if (res.data.code !== 200) {    //登陆失败时code不为200
+              console.log('失败')
+              console.log(res.data.msg)
+              data.msg = res.data.msg
+              data.loading = false   //登陆失败时，取消加载
+              data.istrue = true     //登陆失败，显示提示信息
+              console.log(data.istrue, data.loading)
+              setTimeout(() => {
+                data.istrue = false
+              }, 2000)
+            }
+          } catch {
+            data.loading = false  //如果此时为为实现 501 ，且不能读取code,msg
+            data.msg = '账号不存在'
           }
-          if (res.data.code !== 200) {    //登陆失败时code不为200
-            console.log('失败')
-            console.log(res.data.msg)
-            data.msg = res.data.msg
-            data.istrue = true
-            setTimeout(() => {
-              data.istrue = false
-            }, 2000)
-          }
+
         })
         .catch(err => {
           console.log(err)
         })
     } else {
       alert('手机号码不合法')
+      data.loading = false
+      return
     }
   }
 }
@@ -169,6 +177,7 @@ const checkPhone = () => {
 }
 .res-container {
   position: absolute;
+  z-index: 9999;
   top: 0;
   width: 100%;
   background-color: red;
@@ -212,7 +221,7 @@ const checkPhone = () => {
   }
 }
 
-.loading-mask{
+.loading-mask {
   width: 100;
   height: 100%;
   background-color: rgba(245, 226, 226, 0.5);

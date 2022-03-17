@@ -4,11 +4,11 @@ import requests from "./axios"; //不能以 .ts 结尾
 //手机登录
 function userLogin_(phone: any, password: any) {
   return requests({
-    method: 'post',
+    method: 'get',
     url: '/login/cellphone',  //由网易云API接口所写
-    data: {           //post请求数据放在 data 中
-      phone,
-      password,
+    params: {           //post请求数据放在 data 中
+      phone:phone,
+      password:password,
       // timestamp: new Date().getTime()
     }
   })

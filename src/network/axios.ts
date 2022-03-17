@@ -9,7 +9,7 @@ const mainStore = useMainStore()
 //创建axios实例
 const requests = axios.create({
   //它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
-  baseURL: 'https://netease-cloud-music-api-lime.vercel.app/',
+  baseURL: '/api',
   //如果请求时间超过 `timeout` 的值，则请求会被中断
   timeout: 10000,
   //表示跨域请求时是否需要使用凭证

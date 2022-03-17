@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+
+import styleImport, { VantResolve } from 'vite-plugin-style-import';//配置vant插件
+
 const path = require('path')
 
 const srcPath = path.resolve(__dirname, 'src')
@@ -15,7 +18,12 @@ export default defineConfig({
     },
     cors:true
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    styleImport({   //vant插件配置
+      resolves: [VantResolve()],
+    }),
+  ],
   resolve:{
     alias:[
       {find:'@',replacement:srcPath}
