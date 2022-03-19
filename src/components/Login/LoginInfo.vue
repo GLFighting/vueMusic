@@ -1,6 +1,6 @@
 <template>
   <div class="login-info" >
-    <div class="info-left">
+    <div class="info-left" @click="routerMoveToUserInfo">
       <img :src="data.userImg" />
       <p>{{data.nickName}}</p>
       <i class="iconfont">&#xe8cf;</i>
@@ -13,12 +13,20 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 let data = reactive({
   userId: JSON.parse(localStorage.getItem('userProfile')!).userId,
   nickName: JSON.parse(localStorage.getItem('userProfile')!).nickname,
   userImg: JSON.parse(localStorage.getItem('userProfile')!).avatarUrl
 })
+
+const routerMoveToUserInfo = ()=>{
+  router.push('/userInfo')   //将PersonInfo.vue 的路由跳转到 App.vue 的 <router-view>
+  router.push('/userInfo/mainzone')  //将 MainZone.vue 的路由跳转到 PersonInfo.vue 的 <router-view> 中
+}
 
 </script>
 

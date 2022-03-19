@@ -9,6 +9,10 @@ const router = useRouter();
 const quit = (url: string) => {
       localStorage.removeItem('token')
       localStorage.removeItem('userProfile')
+      localStorage.removeItem('Funs')
+      localStorage.removeItem('FollowList')
+      localStorage.removeItem('userlevel')
+
       router.push(url);
 }
 </script>

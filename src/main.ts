@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import router from './router'  //自动寻找文件夹下的index.ts
  
-import { Button } from 'vant'; //引入vant组件
+import { Button , NavBar , Col , Row , Icon , Sticky , Tab, Tabs , Cell, CellGroup , ConfigProvider } from 'vant'; //引入vant组件
 
 // import { key, store } from './store' //引入状态管理模块
 import {createPinia} from 'pinia' //引入pinia状态管理模块
@@ -15,7 +15,17 @@ const pinia = createPinia()
 
 createApp(App)
   .use(router)
-  .use(Button)
+  .use(ConfigProvider)  //vant的css全局配置
+  .use(Button)  //vant的button组件
+  .use(NavBar)  //vant的navbar组件
+  .use(Col)
+  .use(Row)
+  .use(Cell)     //单元格
+  .use(CellGroup)
+  .use(Tab)      //标签页
+  .use(Tabs)    //标签页
+  .use(Sticky)  //粘性布局
+  .use(Icon)  //使用字体图标
   // .use(store, key)
   .use(pinia)   //挂载
   .mount('#app')

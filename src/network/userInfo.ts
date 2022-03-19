@@ -14,11 +14,7 @@ function getAccount(){
 //获取用户信息，歌单，收藏，mv，dj数量
 function getUserInfo_(){
   return requests({
-    url: '/user/subcount',
-    params: {
-      cookie: Cookies.get('MUSCI_U'),//    ?
-      timstamp: new Date().getTime()
-    }
+    url: '/user/subcount'
   })
 }
 
@@ -36,4 +32,41 @@ function getUserPlayList(uid:any){
   })
 }
 
-export { getUserInfo_ , getUserPlayList , getAccount }
+//获取用户粉丝列表
+function getFunList(uid:any){
+  return requests({
+    url:'/user/followeds',
+    params: {
+      uid
+    }
+  })
+}
+
+//获取用户关注列表
+function getFollowList(uid:any){
+  return requests({
+    url: '/user/follows',
+    params:{
+      uid
+    }
+  })
+}
+
+//获取用户等级
+function getUserLevel(){
+  return requests({
+    url:'/user/level'
+  })
+}
+
+//获取用户详情
+function getDetail(uid:any){
+  return requests({
+    url:'/user/detail',
+    params:{
+      uid
+    }
+  })
+}
+
+export { getUserInfo_ , getUserPlayList , getAccount , getFunList , getFollowList , getUserLevel , getDetail }

@@ -10,14 +10,14 @@
           type="text"
           v-model="data.phone"
           placeholder="请输入手机号码"
-          style="height: 30px;width: 200px;background-color:transparent;border:0;outline: none;"
+          style="height: 50px;width: 200px;background-color:transparent;border:0;outline: none;"
         />
         <br />
         <input
           type="password"
           v-model="data.password"
           placeholder="请输入密码"
-          style="height: 30px;width: 200px;background-color:transparent;border:0;outline: none;"
+          style="height: 50px;width: 200px;background-color:transparent;border:0;outline: none;"
         />
       </form>
       <p class="login" @click="login">登录</p>
@@ -39,8 +39,7 @@
 
 <script setup lang="ts">
 import { userLogin_ } from '../network/login';
-import { getAccount } from '../network/userInfo';
-import { onMounted, reactive } from 'vue';
+import { reactive } from 'vue';
 import { useMainStore } from '../store'
 import { useRouter } from 'vue-router';
 
@@ -83,6 +82,7 @@ const login = () => {
           // console.log(res.data.profile.nickName)
           // console.log(res.data.code)  //登陆成功code为200
           // console.log(typeof res.data.code)  //登陆成功code为200
+          console.log(res,111)
           try {
             if (res.data.code === 200) {
               console.log('成功')
@@ -103,6 +103,7 @@ const login = () => {
               }, 2000)
             }
           } catch {
+            console.log(res)
             data.loading = false  //如果此时为为实现 501 ，且不能读取code,msg
             data.msg = '账号不存在'
           }
@@ -110,6 +111,8 @@ const login = () => {
         })
         .catch(err => {
           console.log(err)
+            data.loading = false  //如果此时为为实现 501 ，且不能读取code,msg
+            data.msg = '账号不存在'
         })
     } else {
       alert('手机号码不合法')
@@ -138,9 +141,11 @@ const checkPhone = () => {
 @import url("@/assets/iconfont/iconfont.css");
 .login-phone {
   color: rgb(85, 73, 150);
+  font-size: 30px;
 }
 .login {
   color: rgb(85, 73, 150);
+  font-size: 20px;
 }
 .background {
   width: 100%;
@@ -171,9 +176,9 @@ const checkPhone = () => {
 .login-page {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
 }
 .res-container {
   position: absolute;

@@ -10,7 +10,7 @@ export const useMainStore = defineStore('main', {
   // 2. 必须是箭头函数，这样是为了更好的 TS 类型推导
   state: ()=>{
     return {
-      showLogin: false,  //控制Login的开关
+      // showLogin: false,  //控制Login的开关
       loading:  false,
     }
   },
@@ -18,12 +18,12 @@ export const useMainStore = defineStore('main', {
     
   }, 
   actions:{   //同步异步均支持
-    changeLoginShow(){
-      this.showLogin = !this.showLogin
-    },
-    userAdd(){     //添加用户信息
+    // changeLoginShow(){
+    //   this.showLogin = !this.showLogin
+    // },
+    // userAdd(){     //添加用户信息
 
-    }
+    // }
   }
 })
 // 2. 使用容器中的 state
