@@ -10,18 +10,18 @@
     <van-cell-group inset>
       <van-cell title="音乐品味"/>
       <van-cell title="听歌排行" icon="music" :label="data.song" />
-      <van-cell title="我喜欢的音乐" icon="like" :label="data.likesonglist" />
+      <van-cell title="我喜欢的音乐" icon="like" :label="data.likesonglist+'，播放'+data.playlist[0].playCount+'次'" />
     </van-cell-group>
     <div class="space"></div>
     <van-cell-group inset>
       <van-cell title="创建的歌单"/>
-      <van-cell :title="data.playlist[1]['name']" :icon="data.playlist[1].coverImgUrl" label="累计听歌xxx首" />
-      <van-cell :title="data.playlist[2]['name']" :icon="data.playlist[2].coverImgUrl" label="累计听歌xxx首" />
+      <van-cell :title="data.playlist[1]['name']" :icon="data.playlist[1].coverImgUrl" :label="data.playlist[1].trackCount+'首，播放'+data.playlist[1].playCount+'次'" />
+      <van-cell :title="data.playlist[2]['name']" :icon="data.playlist[2].coverImgUrl" :label="data.playlist[2].trackCount+'首，播放'+data.playlist[2].playCount+'次'" />
     </van-cell-group>
     <div class="space"></div>
     <van-cell-group inset>
       <van-cell title="收藏的歌单"/>
-      <van-cell v-for="item in data.playlist.slice(3)" :title="item['name']" :icon="item.coverImgUrl" label="累计听歌xxx首" />
+      <van-cell v-for="(item, index) in data.playlist.slice(3)" :title="item['name']" :icon="item.coverImgUrl" :label="item.trackCount+'首，by'+item.creator.nickname+'，'+item.playCount+'次播放'" />
     </van-cell-group>
     <div class="space"></div>
     <van-cell-group inset>
