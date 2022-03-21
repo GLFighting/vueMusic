@@ -13,6 +13,7 @@ const quit = (url: string) => {
       localStorage.removeItem('FollowList')
       localStorage.removeItem('userlevel')
       localStorage.removeItem('playlist')
+      localStorage.removeItem('userDetail')
 
       router.push(url);
 }
