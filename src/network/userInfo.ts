@@ -1,5 +1,4 @@
 import requests from './axios' //引入封装的axios
-import Cookies from 'js-cookie'  //引入第三方模块（npm库）
 
 //获取账号信息
 function getAccount(){
