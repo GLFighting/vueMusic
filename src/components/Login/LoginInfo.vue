@@ -25,7 +25,6 @@ let data = reactive({
 
 const routerMoveToUserInfo = ()=>{
   router.push('/userInfo')   //将PersonInfo.vue 的路由跳转到 App.vue 的 <router-view>
-  router.push('/userInfo/mainzone')  //将 MainZone.vue 的路由跳转到 PersonInfo.vue 的 <router-view> 中
 }
 
 </script>

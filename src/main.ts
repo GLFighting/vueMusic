@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import router from './router'  //自动寻找文件夹下的index.ts
  
-import { Button , NavBar , Col , Row , Icon , Sticky , Tab, Tabs , Cell, CellGroup , ConfigProvider } from 'vant'; //引入vant组件
+import { Button , NavBar , Col , Row , Icon , Sticky , Tab, Tabs , Cell, CellGroup , ConfigProvider , Loading } from 'vant'; //引入vant组件
 
 // import { key, store } from './store' //引入状态管理模块
 import {createPinia} from 'pinia' //引入pinia状态管理模块
@@ -26,6 +26,7 @@ createApp(App)
   .use(Tabs)    //标签页
   .use(Sticky)  //粘性布局
   .use(Icon)  //使用字体图标
+  .use(Loading) //加载
   // .use(store, key)
   .use(pinia)   //挂载
   .mount('#app')

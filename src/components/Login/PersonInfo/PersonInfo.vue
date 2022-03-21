@@ -115,6 +115,10 @@ Promise.all([
   console.log(res[3].data.profile.gender)  //男1，女2
   console.log(res[3].data.profile.privacyItemUnlimit.villageAge)
   localStorage.setItem('userDetail', JSON.stringify(res[3].data))
+  console.log('userDetail')
+
+  //等异步请求完成之后，再进行路由的跳转，防止 userDetail 没有存储到本地时，就将路由跳转到 MainZone.vue ，导致MainZone.vue中的关于userDetail的数据读取不到而报错
+  router.push('/userInfo/mainzone')  //将 MainZone.vue 的路由跳转到 PersonInfo.vue 的 <router-view> 中
 })
 /*…………………………………………………………该组件数据处理等……………………………………………………*/
 // let data = ({
@@ -155,7 +159,7 @@ const onClickTab = (obj: any) => {    //点击时，进行路由跳转
   }
 
 }
-
+console.log('结束')
 </script>
 
 <style scoped>
