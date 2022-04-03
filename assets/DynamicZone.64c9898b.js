@@ -1,0 +1,1 @@
+import{_ as e,o as _,c}from"./index.0243e4fd.js";const a={},n={class:"dynamicZone"};function o(t,s){return _(),c("div",n,"\u6682\u65E0\u76F8\u5173\u52A8\u6001")}var d=e(a,[["render",o],["__scopeId","data-v-da67d36e"]]);export{d as default};
