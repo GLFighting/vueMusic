@@ -15,7 +15,7 @@
 // import { useStore } from 'vuex';
 // import { key } from '../../store';
 import LoginInfo from './LoginInfo.vue'
-import LogOut from './Logout.vue'
+import LogOut from './LogOut.vue'
 
 import { useRouter } from 'vue-router';
 const router = useRouter()
